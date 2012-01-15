@@ -1,0 +1,19 @@
+panorama generation instructions
+--------------------------------
+
+- call pickcorrespondences to select common points between images
+
+- point selection is as follows
+	- select 4 corresponding points on each pair of images in the 
+	  following order, bottom left, bottom right, top right and top left
+	- complete point selection on one image before moving on to the next
+	  ie do not select a point on image n and move on to select the
+	  corresponding point on image n+1, instead select all four points on
+	  image n, then, select the four corresponding points on image n + 1
+	  
+- you may now call makepanorama with the point storage file you supplied as an
+  argument to pickcorrespondences
+  
+- make sure there is no final forward slash in the directory argument ie
+  arguments such as "seq1/" will produce an error instead use
+  "seq1"

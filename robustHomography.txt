@@ -1,0 +1,29 @@
+Initialization
+---------------
+- Let t = threshold
+
+- Let p = probability that we choose an inlier
+	then, p = (n - n')/ n
+	
+- probability that we choose 4 inliers = p^4
+
+- probability at least one outlier is chosen = 1 - p^4
+
+- probability of failure = (1 - p^4)^N
+
+- probability of success, p_s = 1 - (1 - p^4)^N
+
+=> N = log(1 - p_s)/log(1 - p^4)
+
+
+Algorithm
+---------
+
+Repeat N times
+
+	- randomly pick 4 pairs of correspondences {p_r, q_r} from c_k
+	- compute homography H using {p_r, q_r}
+	- compute error between H * p_r and q_r
+	- if error <= t, exit loop
+	
+return H
